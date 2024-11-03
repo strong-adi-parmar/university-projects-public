@@ -1,0 +1,10 @@
+asgiref==3.4.1
+click==8.0.1
+dnspython==1.16.0
+fastapi==0.110.0
+h11==0.12.0
+pydantic==2.6.4
+pymongo==4.
+starlette==0.36.3
+typing-extensions==4.8.0
+uvicorn==0.29.0
