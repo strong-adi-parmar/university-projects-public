@@ -1,0 +1,4 @@
+.ipynb_checkpoints/ 
+.env 
+config.json 
+**/api_key.* 
