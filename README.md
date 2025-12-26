@@ -72,5 +72,4 @@ A machine learning project focused on predicting heart failure risk using multip
 ## 📬 Get in Touch
 Feel free to reach out for collaborations or questions about any of these projects!
 
-## 📄 License
-[Add your preferred license here]
+
