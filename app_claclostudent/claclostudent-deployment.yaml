@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claclostdeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: claclostudent
+  template:
+    metadata:
+      labels:
+        app: claclostudent
+    spec:
+      containers: 
+        - name: claclostudent
+          image: us-central1-docker.pkg.dev/comp7033-cwk2/claclo-student-19276544/claclostudent-19276544
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.1"
+              memory: "256Mi"
+          env:
+            - name: 19276544@brookes.ac.uk
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-atlas-credentials
+                  key: username
+            - name: onenine276544
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-atlas-credentials
+                  key: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: claclostudent-service
+spec:
+  selector:
+    app: claclostudent
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
